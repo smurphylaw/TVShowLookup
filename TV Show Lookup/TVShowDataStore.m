@@ -16,6 +16,8 @@
 
 @implementation TVShowDataStore
 
+static NSString * const reuseIdentifier = @"tvShowListCell";
+
 +(instancetype) sharedInstance {
     static dispatch_once_t once;
     static id sharedInstance;
@@ -25,13 +27,11 @@
     return sharedInstance;
 }
 
-/*-(instancetype)init {
+-(instancetype)init {
     self = [super init];
     
-   [self fetchFeed];
-    
     return self;
-}*/
+}
 
 /*
  -(void)addRandomData {
@@ -65,36 +65,15 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    SMMasterTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    SMMasterTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier forIndexPath:indexPath];
     
     NSDictionary *tvShow = self.tvShowList[indexPath.row];
+    
     cell.tvShowName.text = tvShow[@"name"];
+    // This is just for debug reference - not needed for production
+    cell.cellId = indexPath.row;
     
     return cell;
 }
-
-#pragma mark - Fetch feed
-
--(void)fetchFeed {
-    NSString *requestString = @"http://api.tvmaze.com/shows/1";
-    NSURL *url = [NSURL URLWithString:requestString];
-    NSURLRequest *req = [NSURLRequest requestWithURL:url];
-    
-    NSURLSessionDataTask *dataTask = [self.session dataTaskWithRequest:req completionHandler:^(NSData *data, NSURLResponse *response, NSError *error){
-        
-        NSMutableArray *jsonArray = [NSJSONSerialization JSONObjectWithData:    data
-                                                                    options:0
-                                                                      error:nil];
-        NSDictionary *jsonObject = jsonArray[0];
-        
-        self.tvShowList = jsonObject[@"show"];
-        
-        NSLog(@"%@", jsonObject);
-        
-    }];
-    
-    [dataTask resume];
-}
-
 
 @end

@@ -10,12 +10,11 @@
 
 @class SMDetailViewController;
 
-@interface SMMasterViewController : UITableViewController 
+@interface SMMasterViewController : UITableViewController <UITableViewDelegate>
 
 @property (strong, nonatomic) SMDetailViewController *detailViewController;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
-
-
+@property (nonatomic, strong) NSURLSession *session;
 
 @end
 

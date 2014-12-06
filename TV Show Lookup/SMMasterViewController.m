@@ -25,11 +25,11 @@
     
     if (self) {
         NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
-        [TVShowDataStore sharedInstance].session = [NSURLSession sessionWithConfiguration:config
-                                                                                 delegate:nil
-                                                                            delegateQueue:nil];
+        _session = [NSURLSession sessionWithConfiguration:config
+                                                 delegate:nil
+                                            delegateQueue:nil];
         
-        [[TVShowDataStore sharedInstance] fetchFeed];
+        [self fetchFeed];
     }
     
     return self;
@@ -46,15 +46,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    //[self.tableView registerClass:[UITableView class] forCellReuseIdentifier:@"SMMasterTableViewCell"];
+    self.tableView.dataSource = [TVShowDataStore sharedInstance];
+    
     // Do any additional setup after loading the view, typically from a nib.
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
 
     // UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     // self.navigationItem.rightBarButtonItem = addButton;
     self.detailViewController = (SMDetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
-    
-    self.tableView.dataSource = [TVShowDataStore sharedInstance];
+ 
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -68,7 +68,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)insertNewObject:(id)sender {
+/*- (void)insertNewObject:(id)sender {
     
     if (!self.objects) {
         self.objects = [[NSMutableArray alloc] init];
@@ -83,19 +83,19 @@
         NSLog(@"TV Show list is nil!");
     }
 
-}
+}*/
 
 #pragma mark - Segues
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([[segue identifier] isEqualToString:@"showDetail"]) {
+    //if ([[segue identifier] isEqualToString:@"showDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         NSDate *object = self.objects[indexPath.row];
         SMDetailViewController *controller = (SMDetailViewController *)[[segue destinationViewController] topViewController];
         [controller setDetailItem:object];
         controller.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
         controller.navigationItem.leftItemsSupplementBackButton = YES;
-    }
+    
 }
 
 #pragma mark - Table View
@@ -114,22 +114,27 @@
     }
 }
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
-}
+#pragma mark - Fetch feed
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSInteger itemsCount = [TVShowDataStore sharedInstance].tvShowList.count;
-    return itemsCount;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+-(void)fetchFeed {
+    NSString *requestString = @"http://api.tvmaze.com/shows/1";
+    NSURL *url = [NSURL URLWithString:requestString];
+    NSURLRequest *req = [NSURLRequest requestWithURL:url];
     
-    return cell;
+    NSURLSessionDataTask *dataTask = [self.session dataTaskWithRequest:req completionHandler:^(NSData *data, NSURLResponse *response, NSError *error){
+        
+        NSDictionary *jsonObject = [NSJSONSerialization JSONObjectWithData:data
+                                                                   options:0
+                                                                     error:nil];
+        // NSDictionary *jsonObject = jsonArray[0];
+        
+        [TVShowDataStore sharedInstance].tvShowList = jsonObject[@"show"];
+        
+        NSLog(@"%@", jsonObject);
+        
+    }];
+    
+    [dataTask resume];
 }
-
-
-
 
 @end

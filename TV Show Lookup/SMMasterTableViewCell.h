@@ -10,12 +10,14 @@
 
 @interface SMMasterTableViewCell : UITableViewCell
 
-@property (weak, nonatomic) IBOutlet UILabel *tvShowName;
-@property (weak, nonatomic) IBOutlet UILabel *castNames;
-@property (weak, nonatomic) IBOutlet UILabel *showCategory;
-@property (weak, nonatomic) IBOutlet UILabel *showRating;
+@property (strong, nonatomic) IBOutlet UILabel *tvShowName;
+@property (strong, nonatomic) IBOutlet UILabel *castNames;
+@property (strong, nonatomic) IBOutlet UILabel *showCategory;
+@property (strong, nonatomic) IBOutlet UILabel *showRating;
 
-@property (weak, nonatomic) IBOutlet UIImageView *showLogo;
+@property (strong, nonatomic) IBOutlet UIImageView *showLogo;
+
+@property (assign, atomic) NSInteger cellId;
 
 
 @end

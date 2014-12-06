@@ -12,9 +12,7 @@
 @interface TVShowDataStore : NSObject <UITableViewDataSource>
 
 @property (nonatomic, strong) NSArray *tvShowList;
-@property (nonatomic) NSURLSession *session;
 
 +(instancetype)sharedInstance;
--(void)fetchFeed;
 
 @end

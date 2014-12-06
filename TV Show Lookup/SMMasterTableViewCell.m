@@ -10,6 +10,14 @@
 
 @implementation SMMasterTableViewCell
 
+@synthesize tvShowName;
+@synthesize castNames;
+@synthesize showCategory;
+@synthesize showRating;
+@synthesize showLogo;
+@synthesize cellId;
+
+
 - (void)awakeFromNib {
     // Initialization code
 }
