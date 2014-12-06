@@ -30,6 +30,8 @@ static NSString * const reuseIdentifier = @"tvShowListCell";
 -(instancetype)init {
     self = [super init];
     
+    //   [self fetchFeed];
+    self.tvShowList = [NSArray array];
     return self;
 }
 
@@ -74,6 +76,28 @@ static NSString * const reuseIdentifier = @"tvShowListCell";
     cell.cellId = indexPath.row;
     
     return cell;
+}
+
+#pragma mark - Fetch feed
+
+-(void)fetchFeed {
+    NSString *requestString = @"http://api.tvmaze.com/shows/1";
+    NSURL *url = [NSURL URLWithString:requestString];
+    NSURLRequest *req = [NSURLRequest requestWithURL:url];
+    
+    NSURLSessionDataTask *dataTask = [self.session dataTaskWithRequest:req completionHandler:^(NSData *data, NSURLResponse *response, NSError *error){
+        
+        NSDictionary *jsonObject = [NSJSONSerialization JSONObjectWithData:    data
+                                                                options:0
+                                                                  error:nil];
+        
+        self.tvShowList = [self.tvShowList arrayByAddingObject:jsonObject[@"name"]];
+        
+        NSLog(@"%@", jsonObject);
+        
+    }];
+    
+    [dataTask resume];
 }
 
 @end
