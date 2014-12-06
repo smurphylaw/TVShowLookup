@@ -69,35 +69,15 @@ static NSString * const reuseIdentifier = @"tvShowListCell";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     SMMasterTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier forIndexPath:indexPath];
     
-    NSDictionary *tvShow = self.tvShowList[indexPath.row];
+    NSString *tvShow = self.tvShowList[indexPath.row][@"name"];
     
-    cell.tvShowName.text = tvShow[@"name"];
+    cell.tvShowName.text = tvShow;
     // This is just for debug reference - not needed for production
     cell.cellId = indexPath.row;
     
     return cell;
 }
 
-#pragma mark - Fetch feed
-
--(void)fetchFeed {
-    NSString *requestString = @"http://api.tvmaze.com/shows/1";
-    NSURL *url = [NSURL URLWithString:requestString];
-    NSURLRequest *req = [NSURLRequest requestWithURL:url];
-    
-    NSURLSessionDataTask *dataTask = [self.session dataTaskWithRequest:req completionHandler:^(NSData *data, NSURLResponse *response, NSError *error){
-        
-        NSDictionary *jsonObject = [NSJSONSerialization JSONObjectWithData:    data
-                                                                options:0
-                                                                  error:nil];
-        
-        self.tvShowList = [self.tvShowList arrayByAddingObject:jsonObject[@"name"]];
-        
-        NSLog(@"%@", jsonObject);
-        
-    }];
-    
-    [dataTask resume];
-}
+// removed fetchFeed from here - used version in VC so it can call back to it to reload the table.
 
 @end
