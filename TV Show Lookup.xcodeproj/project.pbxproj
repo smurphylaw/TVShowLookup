@@ -9,12 +9,16 @@
 /* Begin PBXBuildFile section */
 		0D7F0B8D1A3267C30037B608 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D7F0B8C1A3267C30037B608 /* main.m */; };
 		0D7F0B901A3267C30037B608 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D7F0B8F1A3267C30037B608 /* AppDelegate.m */; };
-		0D7F0B931A3267C30037B608 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D7F0B921A3267C30037B608 /* MasterViewController.m */; };
-		0D7F0B961A3267C30037B608 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D7F0B951A3267C30037B608 /* DetailViewController.m */; };
-		0D7F0B991A3267C30037B608 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D7F0B971A3267C30037B608 /* Main.storyboard */; };
 		0D7F0B9B1A3267C30037B608 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D7F0B9A1A3267C30037B608 /* Images.xcassets */; };
 		0D7F0B9E1A3267C30037B608 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D7F0B9C1A3267C30037B608 /* LaunchScreen.xib */; };
 		0D7F0BAA1A3267C30037B608 /* TV_Show_LookupTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D7F0BA91A3267C30037B608 /* TV_Show_LookupTests.m */; };
+		0D7F0BBB1A32682D0037B608 /* SMDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D7F0BB41A32682D0037B608 /* SMDetailTableViewCell.m */; };
+		0D7F0BBC1A32682D0037B608 /* SMDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D7F0BB61A32682D0037B608 /* SMDetailViewController.m */; };
+		0D7F0BBD1A32682D0037B608 /* SMMasterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D7F0BB81A32682D0037B608 /* SMMasterTableViewCell.m */; };
+		0D7F0BBE1A32682D0037B608 /* SMMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D7F0BBA1A32682D0037B608 /* SMMasterViewController.m */; };
+		0D7F0BC21A3268660037B608 /* TVShowDataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D7F0BC11A3268660037B608 /* TVShowDataStore.m */; };
+		0D7F0BC41A3269890037B608 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D7F0BC31A3269890037B608 /* Main.storyboard */; };
+		0D7F0BC71A32C2110037B608 /* BackgroundLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D7F0BC61A32C2110037B608 /* BackgroundLayer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,16 +37,24 @@
 		0D7F0B8C1A3267C30037B608 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0D7F0B8E1A3267C30037B608 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0D7F0B8F1A3267C30037B608 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		0D7F0B911A3267C30037B608 /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
-		0D7F0B921A3267C30037B608 /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
-		0D7F0B941A3267C30037B608 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
-		0D7F0B951A3267C30037B608 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
-		0D7F0B981A3267C30037B608 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0D7F0B9A1A3267C30037B608 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		0D7F0B9D1A3267C30037B608 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		0D7F0BA31A3267C30037B608 /* TV Show LookupTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "TV Show LookupTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D7F0BA81A3267C30037B608 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0D7F0BA91A3267C30037B608 /* TV_Show_LookupTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TV_Show_LookupTests.m; sourceTree = "<group>"; };
+		0D7F0BB31A32682D0037B608 /* SMDetailTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMDetailTableViewCell.h; sourceTree = "<group>"; };
+		0D7F0BB41A32682D0037B608 /* SMDetailTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMDetailTableViewCell.m; sourceTree = "<group>"; };
+		0D7F0BB51A32682D0037B608 /* SMDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMDetailViewController.h; sourceTree = "<group>"; };
+		0D7F0BB61A32682D0037B608 /* SMDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMDetailViewController.m; sourceTree = "<group>"; };
+		0D7F0BB71A32682D0037B608 /* SMMasterTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMMasterTableViewCell.h; sourceTree = "<group>"; };
+		0D7F0BB81A32682D0037B608 /* SMMasterTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMMasterTableViewCell.m; sourceTree = "<group>"; };
+		0D7F0BB91A32682D0037B608 /* SMMasterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMMasterViewController.h; sourceTree = "<group>"; };
+		0D7F0BBA1A32682D0037B608 /* SMMasterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMMasterViewController.m; sourceTree = "<group>"; };
+		0D7F0BC01A3268660037B608 /* TVShowDataStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TVShowDataStore.h; sourceTree = "<group>"; };
+		0D7F0BC11A3268660037B608 /* TVShowDataStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TVShowDataStore.m; sourceTree = "<group>"; };
+		0D7F0BC31A3269890037B608 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		0D7F0BC51A32C2110037B608 /* BackgroundLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackgroundLayer.h; sourceTree = "<group>"; };
+		0D7F0BC61A32C2110037B608 /* BackgroundLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackgroundLayer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,16 +96,23 @@
 		0D7F0B891A3267C30037B608 /* TV Show Lookup */ = {
 			isa = PBXGroup;
 			children = (
+				0D7F0BBF1A3268420037B608 /* Model */,
 				0D7F0B8E1A3267C30037B608 /* AppDelegate.h */,
 				0D7F0B8F1A3267C30037B608 /* AppDelegate.m */,
-				0D7F0B911A3267C30037B608 /* MasterViewController.h */,
-				0D7F0B921A3267C30037B608 /* MasterViewController.m */,
-				0D7F0B941A3267C30037B608 /* DetailViewController.h */,
-				0D7F0B951A3267C30037B608 /* DetailViewController.m */,
-				0D7F0B971A3267C30037B608 /* Main.storyboard */,
+				0D7F0BB31A32682D0037B608 /* SMDetailTableViewCell.h */,
+				0D7F0BB41A32682D0037B608 /* SMDetailTableViewCell.m */,
+				0D7F0BB51A32682D0037B608 /* SMDetailViewController.h */,
+				0D7F0BB61A32682D0037B608 /* SMDetailViewController.m */,
+				0D7F0BB71A32682D0037B608 /* SMMasterTableViewCell.h */,
+				0D7F0BB81A32682D0037B608 /* SMMasterTableViewCell.m */,
+				0D7F0BB91A32682D0037B608 /* SMMasterViewController.h */,
+				0D7F0BBA1A32682D0037B608 /* SMMasterViewController.m */,
+				0D7F0BC31A3269890037B608 /* Main.storyboard */,
 				0D7F0B9A1A3267C30037B608 /* Images.xcassets */,
 				0D7F0B9C1A3267C30037B608 /* LaunchScreen.xib */,
 				0D7F0B8A1A3267C30037B608 /* Supporting Files */,
+				0D7F0BC51A32C2110037B608 /* BackgroundLayer.h */,
+				0D7F0BC61A32C2110037B608 /* BackgroundLayer.m */,
 			);
 			path = "TV Show Lookup";
 			sourceTree = "<group>";
@@ -122,6 +141,15 @@
 				0D7F0BA81A3267C30037B608 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0D7F0BBF1A3268420037B608 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0D7F0BC01A3268660037B608 /* TVShowDataStore.h */,
+				0D7F0BC11A3268660037B608 /* TVShowDataStore.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -204,9 +232,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0D7F0B991A3267C30037B608 /* Main.storyboard in Resources */,
 				0D7F0B9E1A3267C30037B608 /* LaunchScreen.xib in Resources */,
 				0D7F0B9B1A3267C30037B608 /* Images.xcassets in Resources */,
+				0D7F0BC41A3269890037B608 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,9 +253,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				0D7F0B901A3267C30037B608 /* AppDelegate.m in Sources */,
-				0D7F0B931A3267C30037B608 /* MasterViewController.m in Sources */,
+				0D7F0BC71A32C2110037B608 /* BackgroundLayer.m in Sources */,
+				0D7F0BBD1A32682D0037B608 /* SMMasterTableViewCell.m in Sources */,
+				0D7F0BBE1A32682D0037B608 /* SMMasterViewController.m in Sources */,
+				0D7F0BBC1A32682D0037B608 /* SMDetailViewController.m in Sources */,
+				0D7F0BC21A3268660037B608 /* TVShowDataStore.m in Sources */,
+				0D7F0BBB1A32682D0037B608 /* SMDetailTableViewCell.m in Sources */,
 				0D7F0B8D1A3267C30037B608 /* main.m in Sources */,
-				0D7F0B961A3267C30037B608 /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,14 +282,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		0D7F0B971A3267C30037B608 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0D7F0B981A3267C30037B608 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		0D7F0B9C1A3267C30037B608 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -420,6 +444,7 @@
 				0D7F0BAF1A3267C30037B608 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0D7F0BB01A3267C30037B608 /* Build configuration list for PBXNativeTarget "TV Show LookupTests" */ = {
 			isa = XCConfigurationList;
@@ -428,6 +453,7 @@
 				0D7F0BB21A3267C30037B608 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

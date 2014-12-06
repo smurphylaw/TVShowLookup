@@ -6,13 +6,13 @@
 //  Copyright (c) 2014 Murphy. All rights reserved.
 //
 
-#import "DetailViewController.h"
+#import "SMDetailViewController.h"
 
-@interface DetailViewController ()
+@interface SMDetailViewController ()
 
 @end
 
-@implementation DetailViewController
+@implementation SMDetailViewController
 
 #pragma mark - Managing the detail item
 
@@ -21,21 +21,21 @@
         _detailItem = newDetailItem;
             
         // Update the view.
-        [self configureView];
+        // [self configureView];
     }
 }
 
-- (void)configureView {
+/*- (void)configureView {
     // Update the user interface for the detail item.
     if (self.detailItem) {
         self.detailDescriptionLabel.text = [self.detailItem description];
     }
-}
+} */
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-    [self configureView];
+    
+    // [self configureView];
 }
 
 - (void)didReceiveMemoryWarning {
