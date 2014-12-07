@@ -116,25 +116,33 @@
 
 #pragma mark - Fetch feed
 
+int maxShowID = 10; // arbitrary - fetch first ten records.
+
 -(void)fetchFeed {
-    NSString *requestString = @"http://api.tvmaze.com/shows/1";
-    NSURL *url = [NSURL URLWithString:requestString];
-    NSURLRequest *req = [NSURLRequest requestWithURL:url];
     
-    NSURLSessionDataTask *dataTask = [self.session dataTaskWithRequest:req completionHandler:^(NSData *data, NSURLResponse *response, NSError *error){
+    // This gets you data for just the show with id = 1: Under the Dome.
+    //    NSString *requestString = @"http://api.tvmaze.com/shows/1";
+    for (int showID = 1; showID < maxShowID; showID++) {
+        NSString *requestString = [@"http://api.tvmaze.com/shows/" stringByAppendingFormat:@"%i",showID];
+        NSURL *url = [NSURL URLWithString:requestString];
+        NSURLRequest *req = [NSURLRequest requestWithURL:url];
         
-        NSDictionary *jsonObject = [NSJSONSerialization JSONObjectWithData:data
-                                                                   options:0
-                                                                     error:nil];
-        // NSDictionary *jsonObject = jsonArray[0];
+        NSURLSessionDataTask *dataTask = [self.session dataTaskWithRequest:req completionHandler:^(NSData *data, NSURLResponse *response, NSError *error){
+            
+            NSDictionary *jsonObject = [NSJSONSerialization JSONObjectWithData:data
+                                                                       options:0
+                                                                         error:nil];
+            // NSDictionary *jsonObject = jsonArray[0];
+            
+            [TVShowDataStore sharedInstance].tvShowList = [[TVShowDataStore sharedInstance].tvShowList arrayByAddingObject:jsonObject];
+            [self.tableView reloadData];
+            
+            NSLog(@"%@", jsonObject);
+            
+        }];
         
-        [TVShowDataStore sharedInstance].tvShowList = jsonObject[@"show"];
-        
-        NSLog(@"%@", jsonObject);
-        
-    }];
-    
-    [dataTask resume];
+        [dataTask resume];
+    }
 }
 
 @end

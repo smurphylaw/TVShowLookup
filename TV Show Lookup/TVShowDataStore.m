@@ -30,6 +30,8 @@ static NSString * const reuseIdentifier = @"tvShowListCell";
 -(instancetype)init {
     self = [super init];
     
+    //   [self fetchFeed];
+    self.tvShowList = [NSArray array];
     return self;
 }
 
@@ -67,13 +69,15 @@ static NSString * const reuseIdentifier = @"tvShowListCell";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     SMMasterTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier forIndexPath:indexPath];
     
-    NSDictionary *tvShow = self.tvShowList[indexPath.row];
+    NSString *tvShow = self.tvShowList[indexPath.row][@"name"];
     
-    cell.tvShowName.text = tvShow[@"name"];
+    cell.tvShowName.text = tvShow;
     // This is just for debug reference - not needed for production
     cell.cellId = indexPath.row;
     
     return cell;
 }
+
+// removed fetchFeed from here - used version in VC so it can call back to it to reload the table.
 
 @end
