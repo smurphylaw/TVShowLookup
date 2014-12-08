@@ -14,7 +14,6 @@
 
 @property (strong, nonatomic) SMDetailViewController *detailViewController;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
-@property (nonatomic, strong) NSURLSession *session;
 
 @end
 

@@ -13,8 +13,8 @@
 
 @interface SMMasterViewController ()
 
-@property NSMutableArray *objects;
-
+//@property NSMutableArray *objects;
+@property (nonatomic, strong) NSURLSession *session;
 
 @end
 
@@ -90,9 +90,9 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     //if ([[segue identifier] isEqualToString:@"showDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        NSDate *object = self.objects[indexPath.row];
         SMDetailViewController *controller = (SMDetailViewController *)[[segue destinationViewController] topViewController];
-        [controller setDetailItem:object];
+        [controller setDetailItem:[TVShowDataStore sharedInstance].tvShowList[indexPath.row]];
+    // recommend adding check to make sure it's there to avoid crash
         controller.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
         controller.navigationItem.leftItemsSupplementBackButton = YES;
     
@@ -102,12 +102,12 @@
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     // Return NO if you do not want the specified item to be editable.
-    return YES;
+    return NO;
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [self.objects removeObjectAtIndex:indexPath.row];
+ //       [self.objects removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
@@ -132,7 +132,6 @@ int maxShowID = 10; // arbitrary - fetch first ten records.
             NSDictionary *jsonObject = [NSJSONSerialization JSONObjectWithData:data
                                                                        options:0
                                                                          error:nil];
-            // NSDictionary *jsonObject = jsonArray[0];
             
             [TVShowDataStore sharedInstance].tvShowList = [[TVShowDataStore sharedInstance].tvShowList arrayByAddingObject:jsonObject];
             [self.tableView reloadData];

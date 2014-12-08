@@ -9,6 +9,8 @@
 #import "TVShowDataStore.h"
 #import "SMMasterTableViewCell.h"
 #import "SMMasterViewController.h"
+#import <AFNetworking/AFNetworking.h>
+#import <AFNetworking/UIImageView+AFNetworking.h>
 
 @interface TVShowDataStore()
 
@@ -30,7 +32,6 @@ static NSString * const reuseIdentifier = @"tvShowListCell";
 -(instancetype)init {
     self = [super init];
     
-    //   [self fetchFeed];
     self.tvShowList = [NSArray array];
     return self;
 }
@@ -69,15 +70,32 @@ static NSString * const reuseIdentifier = @"tvShowListCell";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     SMMasterTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier forIndexPath:indexPath];
     
-    NSString *tvShow = self.tvShowList[indexPath.row][@"name"];
+    // NSString *tvShow = self.tvShowList[indexPath.row][@"name"];
+    NSDictionary *tvShow = self.tvShowList[indexPath.row];
+    NSString *network = [self.tvShowList valueForKeyPath:@"network.name"][indexPath.row];
+
+    cell.tvShowName.text = tvShow[@"name"];
+    cell.showStatus.text = tvShow[@"status"];
+    cell.showNetwork.text = network;
+    NSURL *imageURL = [NSURL URLWithString:[tvShow valueForKeyPath:@"image.original"]];
+    [cell.showLogo setImageWithURL:imageURL];
     
-    cell.tvShowName.text = tvShow;
     // This is just for debug reference - not needed for production
     cell.cellId = indexPath.row;
     
     return cell;
 }
 
-// removed fetchFeed from here - used version in VC so it can call back to it to reload the table.
+
+-(NSDictionary *)castForShow:(NSString *)showID {
+    if (!self.tvShowList || self.tvShowList.count <1) {
+        return nil;
+    }
+    return showID;
+}
+
+-(NSDictionary *)episodesForShow:(NSString *)showID {
+    return showID;
+}
 
 @end

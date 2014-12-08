@@ -8,12 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SMDetailViewController : UIViewController
+@interface SMDetailViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 @property (strong, nonatomic) id detailItem;
 
 @property (weak, nonatomic) IBOutlet UILabel *tvShowSummary;
-@property (weak, nonatomic) IBOutlet UILabel *rating;
+@property (weak, nonatomic) IBOutlet UILabel *nextEpisodeDate;
 @property (weak, nonatomic) IBOutlet UILabel *networkName;
 @property (weak, nonatomic) IBOutlet UILabel *tvShowStatus;
 @property (weak, nonatomic) IBOutlet UILabel *datePremiered;
@@ -23,6 +23,9 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *castTableView;
 @property (weak, nonatomic) IBOutlet UITableView *episodeTableView;
+
+@property (strong) NSArray *cast;
+@property (strong) NSArray *episodes;
 
 
 @end

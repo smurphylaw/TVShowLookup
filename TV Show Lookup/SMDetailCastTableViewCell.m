@@ -6,11 +6,11 @@
 //  Copyright (c) 2014 Murphy. All rights reserved.
 //
 
-#import "SMDetailTableViewCell.h"
+#import "SMDetailCastTableViewCell.h"
 #import "SMMasterViewController.h"
 #import "TVShowDataStore.h"
 
-@implementation SMDetailTableViewCell
+@implementation SMDetailCastTableViewCell
 
 - (void)awakeFromNib {
     // Initialization code

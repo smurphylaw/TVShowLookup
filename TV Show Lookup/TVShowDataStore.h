@@ -15,4 +15,8 @@
 
 +(instancetype)sharedInstance;
 
+-(NSDictionary*)castForShow:(NSString*)showID;
+-(NSDictionary*)episodesForShow:(NSString*)showID;
+
+
 @end

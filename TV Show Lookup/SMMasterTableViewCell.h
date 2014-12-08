@@ -11,9 +11,8 @@
 @interface SMMasterTableViewCell : UITableViewCell
 
 @property (strong, nonatomic) IBOutlet UILabel *tvShowName;
-@property (strong, nonatomic) IBOutlet UILabel *castNames;
-@property (strong, nonatomic) IBOutlet UILabel *showCategory;
-@property (strong, nonatomic) IBOutlet UILabel *showRating;
+@property (weak, nonatomic) IBOutlet UILabel *showStatus;
+@property (strong, nonatomic) IBOutlet UILabel *showNetwork;
 
 @property (strong, nonatomic) IBOutlet UIImageView *showLogo;
 

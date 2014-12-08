@@ -11,9 +11,8 @@
 @implementation SMMasterTableViewCell
 
 @synthesize tvShowName;
-@synthesize castNames;
-@synthesize showCategory;
-@synthesize showRating;
+@synthesize showStatus;
+@synthesize showNetwork;
 @synthesize showLogo;
 @synthesize cellId;
 
