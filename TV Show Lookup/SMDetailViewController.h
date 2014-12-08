@@ -12,7 +12,7 @@
 
 @property (strong, nonatomic) id detailItem;
 
-@property (weak, nonatomic) IBOutlet UILabel *tvShowSummary;
+@property (weak, nonatomic) IBOutlet UITextView *tvShowSummary;
 @property (weak, nonatomic) IBOutlet UILabel *nextEpisodeDate;
 @property (weak, nonatomic) IBOutlet UILabel *networkName;
 @property (weak, nonatomic) IBOutlet UILabel *tvShowStatus;

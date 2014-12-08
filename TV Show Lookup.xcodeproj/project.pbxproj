@@ -19,6 +19,7 @@
 		0D7F0BC21A3268660037B608 /* TVShowDataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D7F0BC11A3268660037B608 /* TVShowDataStore.m */; };
 		0D7F0BC41A3269890037B608 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D7F0BC31A3269890037B608 /* Main.storyboard */; };
 		0D7F0BC71A32C2110037B608 /* BackgroundLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D7F0BC61A32C2110037B608 /* BackgroundLayer.m */; };
+		0DC168221A3542A00009CB76 /* SMDetailEpisodeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DC168211A3542A00009CB76 /* SMDetailEpisodeTableViewCell.m */; };
 		56F4C597ECEB4CD4102E13F8 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BC8E2158DE06C46100052075 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +57,8 @@
 		0D7F0BC31A3269890037B608 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		0D7F0BC51A32C2110037B608 /* BackgroundLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackgroundLayer.h; sourceTree = "<group>"; };
 		0D7F0BC61A32C2110037B608 /* BackgroundLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackgroundLayer.m; sourceTree = "<group>"; };
+		0DC168201A3542A00009CB76 /* SMDetailEpisodeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMDetailEpisodeTableViewCell.h; sourceTree = "<group>"; };
+		0DC168211A3542A00009CB76 /* SMDetailEpisodeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMDetailEpisodeTableViewCell.m; sourceTree = "<group>"; };
 		70395BE6089B8E335EE3E0A3 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		8B51DB2D0689C7B122B79FCD /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		BC8E2158DE06C46100052075 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -108,6 +111,8 @@
 				0D7F0B8F1A3267C30037B608 /* AppDelegate.m */,
 				0D7F0BB31A32682D0037B608 /* SMDetailCastTableViewCell.h */,
 				0D7F0BB41A32682D0037B608 /* SMDetailCastTableViewCell.m */,
+				0DC168201A3542A00009CB76 /* SMDetailEpisodeTableViewCell.h */,
+				0DC168211A3542A00009CB76 /* SMDetailEpisodeTableViewCell.m */,
 				0D7F0BB51A32682D0037B608 /* SMDetailViewController.h */,
 				0D7F0BB61A32682D0037B608 /* SMDetailViewController.m */,
 				0D7F0BB71A32682D0037B608 /* SMMasterTableViewCell.h */,
@@ -319,6 +324,7 @@
 				0D7F0BC21A3268660037B608 /* TVShowDataStore.m in Sources */,
 				0D7F0BBB1A32682D0037B608 /* SMDetailCastTableViewCell.m in Sources */,
 				0D7F0B8D1A3267C30037B608 /* main.m in Sources */,
+				0DC168221A3542A00009CB76 /* SMDetailEpisodeTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

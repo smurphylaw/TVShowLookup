@@ -61,6 +61,7 @@
     CAGradientLayer *bgLayer = [BackgroundLayer blueGradient];
     bgLayer.frame = self.view.bounds;
     [self.view.layer insertSublayer:bgLayer atIndex:0];
+    self.title = @"TV Show Lookup";
 }
 
 - (void)didReceiveMemoryWarning {
@@ -95,6 +96,8 @@
     // recommend adding check to make sure it's there to avoid crash
         controller.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
         controller.navigationItem.leftItemsSupplementBackButton = YES;
+        controller.navigationItem.leftBarButtonItem.title = @"Back";
+        self.title = @"Back";
     
 }
 
