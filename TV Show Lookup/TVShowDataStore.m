@@ -9,7 +9,6 @@
 #import "TVShowDataStore.h"
 #import "SMMasterTableViewCell.h"
 #import "SMMasterViewController.h"
-#import <AFNetworking/AFNetworking.h>
 #import <AFNetworking/UIImageView+AFNetworking.h>
 
 @interface TVShowDataStore()
@@ -84,18 +83,6 @@ static NSString * const reuseIdentifier = @"tvShowListCell";
     cell.cellId = indexPath.row;
     
     return cell;
-}
-
-
--(NSDictionary *)castForShow:(NSString *)showID {
-    if (!self.tvShowList || self.tvShowList.count <1) {
-        return nil;
-    }
-    return showID;
-}
-
--(NSDictionary *)episodesForShow:(NSString *)showID {
-    return showID;
 }
 
 @end

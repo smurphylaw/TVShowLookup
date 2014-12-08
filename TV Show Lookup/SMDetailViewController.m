@@ -12,6 +12,7 @@
 #import "SMDetailCastTableViewCell.h"
 #import "SMDetailEpisodeTableViewCell.h"
 #import "BackgroundLayer.h"
+#import <AFNetworking/UIImageView+AFNetworking.h>
 
 @interface SMDetailViewController ()
 
@@ -77,13 +78,9 @@
     self.datePremiered.text = tvShow[@"premiered"];
     self.networkName.text = network;
     
+    NSURL *imageURL = [NSURL URLWithString:[tvShow valueForKeyPath:@"image.original"]];
+    [self.tvShowLogo setImageWithURL:imageURL];
     
-}
-
--(void)viewWillAppear:(BOOL)animated {
-    CAGradientLayer *bgLayer = [BackgroundLayer blueGradient];
-    bgLayer.frame = self.view.bounds;
-    [self.view.layer insertSublayer:bgLayer atIndex:0];
 }
 
 - (void)viewDidLoad {
@@ -117,6 +114,7 @@
     return itemsCount;
     
 }
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if (tableView == self.castTableView) {
@@ -132,9 +130,6 @@
         // to get person images later..
         //    NSURL *imageURL = [NSURL URLWithString:[tvShow valueForKeyPath:@"image.original"]];
         //    [cell.showLogo setImageWithURL:imageURL];
-    
-        // This is just for debug reference - not needed for production
-        //  cell.cellId = indexPath.row;
         
         return cell;
         
